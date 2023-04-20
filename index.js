@@ -3,6 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
 
+
 const app = express();
 
 //enable body parser
@@ -14,5 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/openai', require('./routes/openaiRoutes'));
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});
 
